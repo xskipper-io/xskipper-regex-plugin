@@ -1,0 +1,3 @@
+application_name,log_line
+batch job,20/12/29 18:04:39 INFO FileSourceStrategy: Pruning directories with:
+batch job,20/12/29 18:04:39 INFO DAGScheduler: ResultStage 22 (collect at ParquetMetadataHandle.scala:324) finished in 0.011 s

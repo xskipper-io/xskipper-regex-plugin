@@ -1,0 +1,43 @@
+*.swp
+.DS_Store
+.cache
+tmp/
+
+# intellij files
+.idea
+.idea_modules/
+*.ipr
+*.iws
+*.iml
+
+# Hive/metastore files
+metastore_db/
+
+# Spark/metastore files
+spark-warehouse/
+derby.log
+
+# Python
+__pycache__/
+*.py[cod]
+.eggs/
+.tox/
+env/
+venv/
+*.egg-info/
+test-reports
+build/
+!build/sbt-launch-lib.bash
+!build/sbt
+dist/
+sdist/
+.coverage
+coverage.xml
+.pytest_cache/
+
+# Misc
+.scans/
+lib/
+src/test/resources/metadata/
+target/
+*~

@@ -1,0 +1,1 @@
+io.xskipper:xskipper-core_2.12:1.2.0
