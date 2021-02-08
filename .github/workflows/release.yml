@@ -18,7 +18,7 @@ jobs:
     if: github.repository == 'xskipper-io/xskipper-regex-plugin'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Xskipper repository
+      - name: Checkout xskipper-regex-plugin repository
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.CI_TOKEN }}
