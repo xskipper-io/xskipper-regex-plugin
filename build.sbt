@@ -10,16 +10,14 @@ scalaVersion := crossScalaVersions.value.head
 sparkVersion := "3.0.1"
 
 libraryDependencies ++= Seq (
-  //  TODO: add once the jar is published
-  // "io.xskipper" %% "xskipper" % "1.2.0",
+  "io.xskipper" %% "xskipper-core" % "1.2.0" % "provided",
   "org.apache.spark" %% "spark-hive" % sparkVersion.value % "provided",
   "org.apache.spark" %% "spark-sql" % sparkVersion.value % "provided",
   "org.apache.spark" %% "spark-core" % sparkVersion.value % "provided",
   "org.apache.spark" %% "spark-catalyst" % sparkVersion.value % "provided",
 
   // test dependencies
-  //  TODO: add once the jar is published
-  // "io.xskipper" %% "xskipper" % "1.2.0"  % "test",
+  "io.xskipper" %% "xskipper-core" % "1.2.0" % "test",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   "org.apache.spark" %% "spark-catalyst" % sparkVersion.value % "test",
   "org.apache.spark" %% "spark-core" % sparkVersion.value % "test",
@@ -86,11 +84,21 @@ scalacOptions in (Compile, doc) ++= Seq(
 organization := "io.xskipper"
 organizationName := "xskipper"
 organizationHomepage := Some(url("http://www.xskipper.io/"))
-description := "Xskipper: An Indexing Subsystem for Apache Spark"
+description := "xskipper-regex-plugin: A sample plugin for Xskipper"
 licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-// TODO: add release repo
-publishTo := Some(Resolver.file("file", new File("/tmp/check_release")))
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value) {
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  } else {
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+  }
+}
+credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org",
+  System.getenv("NEXUS_USER"), System.getenv("NEXUS_PW"))
+
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 publishMavenStyle := true
 releaseCrossBuild := true
