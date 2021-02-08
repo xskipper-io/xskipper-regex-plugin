@@ -17,10 +17,6 @@ on:
       - '**/README.md'
       - '**/CONTRIBUTING.md'
   workflow_dispatch:
-    inputs:
-      target:
-        description: 'Target branch to run'
-        required: true
 
 jobs:
   build:
