@@ -20,7 +20,7 @@ on:
 
 jobs:
   build:
-    name: Build xskipper and run Scala and Python tests
+    name: Build xskipper-regex-plugin and run Scala and Python tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
