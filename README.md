@@ -5,6 +5,8 @@
 
 # Xskipper Regex Plugin
 
+![Build Status](https://github.com/xskipper-io/xskipper-regex-plugin/workflows/build/badge.svg)
+
 A sample plugin for [Xskipper](https://github.com/xskipper-io/xskipper). See Xskipper [documentation](https://xskipper-io.github.io/xskipper/api/creating-new-plugin/) for more details on how to create a plugin.
 
 The plugin enable to index a column by specifying a list of patterns and saving the matching groups as a value list.
